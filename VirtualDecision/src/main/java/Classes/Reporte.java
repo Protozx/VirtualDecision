@@ -18,6 +18,24 @@ public class Reporte implements Serializable {
     String nombreA;
     String fecha;
     String descripcion;
+    String solucion;
+    int estado;
+
+    public String getSolucion() {
+        return solucion;
+    }
+
+    public void setSolucion(String solucion) {
+        this.solucion = solucion;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
 
     public String getIdU() {
         return idU;

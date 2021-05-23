@@ -16,12 +16,24 @@ public class Jefe {
 
     ArrayList<usuario> BUser = new ArrayList<>();
     ArrayList<Reporte> BReporte = new ArrayList<>();
+    ArrayList<Pregunta> Examen = new ArrayList<>();
     RegistrosUsuario base = new RegistrosUsuario();
     usuario vivo = new usuario();
+    Respuestas galleta = new Respuestas();
 
     Jefe() {
         BUser = base.leer();
         BReporte = base.leerR();
+        Examen = base.leerE();
+        galleta = base.actual();
+    }
+
+    public void crearP(String texto, int area) {
+        Pregunta temp = new Pregunta();
+        temp.setTexto(texto);
+        temp.setArea(area);
+        Examen.add(temp);
+        base.GuardarE(Examen);
     }
 
     public void registrar(String nombre, String contraseña, int tipo) {
@@ -43,6 +55,7 @@ public class Jefe {
         temp.setIdU(idU);
         temp.setNombreA(nombreA);
         temp.setNombreU(nombreU);
+        temp.setEstado(1);
         BReporte.add(temp);
         base.GuardarR(BReporte);
     }
@@ -94,7 +107,11 @@ public class Jefe {
     public ArrayList<Reporte> devolerR() {
         return BReporte;
     }
-    
+
+    public ArrayList<Pregunta> devolerE() {
+        return Examen;
+    }
+
     public void cambiar(int pos, String idU, String idA, String nombreU, String nombreA, String fecha, String descripcion) {
         BReporte.get(pos).setDescripcion(descripcion);
         BReporte.get(pos).setFecha(fecha);
@@ -103,6 +120,70 @@ public class Jefe {
         BReporte.get(pos).setNombreA(nombreA);
         BReporte.get(pos).setNombreU(nombreU);
         base.GuardarR(BReporte);
+    }
+
+    public void borrar(int pos) {
+        BReporte.remove(pos);
+        base.GuardarR(BReporte);
+    }
+
+    public void resolver(int pos, int estado, String solucion) {
+        vivo = base.usar();
+        BReporte.get(pos).setEstado(estado);
+        BReporte.get(pos).setSolucion(solucion);
+        BReporte.get(pos).setNombreA(vivo.getNombre());
+        base.GuardarR(BReporte);
+    }
+
+    public void siguiente() {
+        int pos = 1 + galleta.getPos();
+        galleta.setPos(pos);
+        base.actualizar(galleta);
+    }
+
+    public void Hummanidades(int respuesta) {
+        int alor = galleta.getHu() + respuesta;
+        galleta.setHu(alor);
+        base.actualizar(galleta);
+    }
+
+    public void Empresarial(int respuesta) {
+        int alor = galleta.getEm() + respuesta;
+        galleta.setEm(alor);
+        base.actualizar(galleta);
+    }
+
+    public void Artes(int respuesta) {
+        int alor = galleta.getAr() + respuesta;
+        galleta.setAr(alor);
+        base.actualizar(galleta);
+    }
+
+    public void Ciencias(int respuesta) {
+        int alor = galleta.getCi() + respuesta;
+        galleta.setCi(alor);
+        base.actualizar(galleta);
+    }
+
+    public void Ingenierias(int respuesta) {
+        int alor = galleta.getIn() + respuesta;
+        galleta.setIn(alor);
+        base.actualizar(galleta);
+    }
+
+    public int areaA() {
+        int area = Examen.get(galleta.getPos()).getArea();
+        return area;
+    }
+    
+    public void Resetear(){
+        galleta.setPos(0);
+        galleta.setAr(0);
+        galleta.setCi(0);
+        galleta.setEm(0);
+        galleta.setHu(0);
+        galleta.setIn(0);
+        base.actualizar(galleta);
     }
 
 }

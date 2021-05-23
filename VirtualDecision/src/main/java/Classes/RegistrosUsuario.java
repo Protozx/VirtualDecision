@@ -16,8 +16,10 @@ public class RegistrosUsuario {
 
     ArrayList<usuario> guardado = new ArrayList<>();
     ArrayList<Reporte> salbado = new ArrayList<>();
+    ArrayList<Pregunta> seguro = new ArrayList<>();
     usuario activo = new usuario();
-
+    Respuestas ahora = new Respuestas();
+    
     ArrayList<usuario> leer() {
         try {
             ObjectInputStream objLectura = new ObjectInputStream(new FileInputStream("C:/Users/Eidan Plata/Desktop/users.dat"));
@@ -32,6 +34,26 @@ public class RegistrosUsuario {
         try{
             ObjectOutputStream objGrabar = new ObjectOutputStream(new FileOutputStream("C:/Users/Eidan Plata/Desktop/users.dat"));
             objGrabar.writeObject(ListaSeriar);
+            objGrabar.close();
+        }
+        catch (IOException e){
+        }
+    }
+    
+    ArrayList<Pregunta> leerE() {
+        try {
+            ObjectInputStream objLectura = new ObjectInputStream(new FileInputStream("C:/Users/Eidan Plata/Desktop/examen.dat"));
+            seguro = (ArrayList<Pregunta>) objLectura.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            
+        }
+        return seguro;
+    }
+    
+    void GuardarE(ArrayList<Pregunta> ListaSerial){
+        try{
+            ObjectOutputStream objGrabar = new ObjectOutputStream(new FileOutputStream("C:/Users/Eidan Plata/Desktop/examen.dat"));
+            objGrabar.writeObject(ListaSerial);
             objGrabar.close();
         }
         catch (IOException e){
@@ -77,5 +99,26 @@ public class RegistrosUsuario {
         catch (IOException e){
         }
     }
+    
+    Respuestas actual() {
+        try {
+            ObjectInputStream objLectura = new ObjectInputStream(new FileInputStream("C:/Users/Eidan Plata/Desktop/respuestas.dat"));
+            ahora = (Respuestas) objLectura.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            
+        }
+        return ahora;
+    }
+    
+    void actualizar(Respuestas cookie){
+        try{
+            ObjectOutputStream objGrabar = new ObjectOutputStream(new FileOutputStream("C:/Users/Eidan Plata/Desktop/respuestas.dat"));
+            objGrabar.writeObject(cookie);
+            objGrabar.close();
+        }
+        catch (IOException e){
+        }
+    }
+    
 }
 

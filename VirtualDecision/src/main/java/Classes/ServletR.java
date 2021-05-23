@@ -67,7 +67,7 @@ public class ServletR extends HttpServlet {
                     out.println("<input type=\"hidden\" id=\"iden\" name=\"iden\" value=\"" + k + "\"></form></div></body></html>");
 
                 } else {
-
+                    //if borrar,resolver
                 }
 
             } catch (Exception e) {

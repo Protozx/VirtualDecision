@@ -7,9 +7,7 @@ package Classes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Eidan Plata
  */
-@WebServlet(name = "ServletU", urlPatterns = {"/ServletU"})
-public class ServletU extends HttpServlet {
+public class TEST extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,67 +32,14 @@ public class ServletU extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            response.sendRedirect("ServletDG");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletU</title>");
+            out.println("<title>Servlet TEST</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletU at " + request.getContextPath() + "</h1>");
-
-            Jefe base = new Jefe();
-            ArrayList<usuario> BUser = new ArrayList<>();
-            if (request.getParameter("guardar").equals("Guardar")) {
-
-                int sise = 0;
-                out.println("<p>Si</p>");
-                String nombre = request.getParameter("usuario2");
-                out.println("<p>Si " + nombre + "</p>");
-                String contraseña = request.getParameter("contra2");
-                out.println("<p>Si " + contraseña + "</p>");
-                int tipo = 4;
-
-                base.registrar(nombre, contraseña, tipo);
-                out.println("<p>Hecho</p>");
-
-                BUser = base.devoler();
-                int i = 0;
-                while (i < BUser.size()) {
-                    out.println("<p>" + BUser.get(i).getNombre() + " " + BUser.get(i).getContraseña() + " " + BUser.get(i).getTipo() + "</p>");
-                    i++;
-                }
-                out.println("<p>Ahora " + base.nombreA() + " esta ativo</p>");
-
-            } else {
-                String nombre = request.getParameter("usuario");
-                out.println("<p>Si " + nombre + "</p>");
-
-                base.ingresar(nombre, nombre);
-
-                if (nombre.equals(base.nombreA())) {
-                    if (base.tipoA() == 3) {
-                        response.sendRedirect("index_1.jsp");
-                    } else {
-                        if (base.tipoA() == 2) {
-                            response.sendRedirect("index_1_1.jsp");
-                        } else {
-                            if (base.tipoA() == 4) {
-                                response.sendRedirect("index_2.jsp");
-                            } else {
-                                response.sendRedirect("index.jsp");
-                            }
-                        }
-                    }
-                } else {
-                    response.sendRedirect("noexiste.html");
-                }
-
-                out.println("<p>Ahora " + base.nombreA() + " esta ativo</p>");
-                //
-
-            }
-
-            //
+            out.println("<h1>Servlet TEST at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

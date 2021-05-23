@@ -9,7 +9,7 @@
 <html>
     <head>
         <title>Virtual Decision</title>
-        <link rel="stylesheet" href="testd.css">
+        <link rel="stylesheet" href="part.css">
     </head>
     <body>
         <div id="cabecera">
@@ -28,7 +28,10 @@
             <center>
                 <table class="tabla">
                     <tr>
-                        <td class="txt1">BIENVENIDO</td>
+                        <td class="txt1">TEST DE APTITUDES</td>
+                    </tr>
+                    <tr>
+                        <td class="txte"><form action="ServletR" method="post"><input type="submit" value="INICIAR"></form></td>
                     </tr>
                 </table>
             </center>

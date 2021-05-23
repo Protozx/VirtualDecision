@@ -4,9 +4,41 @@
         <servlet-name>ServletDespliegue</servlet-name>
         <servlet-class>Classes.ServletDespliegue</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletI</servlet-name>
+        <servlet-class>Classes.ServletI</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletE</servlet-name>
+        <servlet-class>Classes.ServletE</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TEST</servlet-name>
+        <servlet-class>Classes.TEST</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletA</servlet-name>
+        <servlet-class>Classes.ServletA</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletDespliegue</servlet-name>
         <url-pattern>/ServletDespliegue</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletI</servlet-name>
+        <url-pattern>/ServletI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletE</servlet-name>
+        <url-pattern>/ServletE</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TEST</servlet-name>
+        <url-pattern>/TEST</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletA</servlet-name>
+        <url-pattern>/ServletA</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
