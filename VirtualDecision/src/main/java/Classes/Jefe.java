@@ -175,8 +175,33 @@ public class Jefe {
         int area = Examen.get(galleta.getPos()).getArea();
         return area;
     }
-    
-    public void Resetear(){
+
+    public int PHu() {
+        int porcen = 5 * (galleta.getHu());
+        return porcen;
+    }
+
+    public int PAr() {
+        int porcen = 5 * (galleta.getAr());
+        return porcen;
+    }
+
+    public int PEm() {
+        int porcen = 5 * (galleta.getEm());
+        return porcen;
+    }
+
+    public int PCi() {
+        int porcen = 5 * (galleta.getCi());
+        return porcen;
+    }
+
+    public int PIn() {
+        int porcen = 5 * (galleta.getIn());
+        return porcen;
+    }
+
+    public void Resetear() {
         galleta.setPos(0);
         galleta.setAr(0);
         galleta.setCi(0);
@@ -184,6 +209,55 @@ public class Jefe {
         galleta.setHu(0);
         galleta.setIn(0);
         base.actualizar(galleta);
+    }
+
+    public int Final() {
+        int pos = galleta.getPos();
+        if ((pos + 1) == Examen.size()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int Position() {
+        return galleta.getPos();
+    }
+
+    public String Mayor() {
+        String area = "";
+        int max = 20;
+        int T = 1;
+        while (T == 1) {
+            if (galleta.getAr() > max) {
+                area = "ARTISTICAS";
+                T = 0;
+            } else {
+                if (galleta.getHu() > max) {
+                    area = "HUMANISTICAS";
+                    T = 0;
+                } else {
+                    if (galleta.getCi() > max) {
+                        area = "CIENCIAS";
+                        T = 0;
+                    } else {
+                        if (galleta.getIn() > max) {
+                            area = "INGENIERIAS";
+                            T = 0;
+                        } else {
+                            if (galleta.getEm() > max) {
+                                area = "EMPRESARIALES";
+                                T = 0;
+                            } else {
+                                int res = max - 1;
+                                max = res;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return area;
     }
 
 }

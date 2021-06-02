@@ -5,11 +5,13 @@
  */
 package Classes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Eidan Plata
  */
-public class Respuestas {
+public class Respuestas implements Serializable {
 
     int pos;
     int hu;

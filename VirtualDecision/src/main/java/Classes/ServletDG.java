@@ -181,8 +181,9 @@ public class ServletDG extends HttpServlet {
             while (BReporte.size() > i) {
                 if (BReporte.get(i).getEstado() == 4) {
                     out.println("<tr><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>");
-                    out.println("<tr><td class=\"txt5\">" + BReporte.get(i).getIdU() + "</td><td class=\"txt5\">" + BReporte.get(i).getNombreU() + "</td><td class=\"txt5\">" + BReporte.get(i).getIdA() + "</td><td class=\"txt5\">" + BReporte.get(i).getNombreA() + "</td><td class=\"txt5\">" + BReporte.get(i).getFecha() + "</td><td class=\"txt6\">" + BReporte.get(i).getDescripcion() + "</td>");
+                    out.println("<tr><td class=\"txt5\" rowspan=\"2\">" + BReporte.get(i).getIdU() + "</td><td class=\"txt5\" rowspan=\"2\">" + BReporte.get(i).getNombreU() + "</td><td class=\"txt5\" rowspan=\"2\">" + BReporte.get(i).getIdA() + "</td><td class=\"txt5\" rowspan=\"2\">" + BReporte.get(i).getNombreA() + "</td><td class=\"txt5\" rowspan=\"2\">" + BReporte.get(i).getFecha() + "</td><td class=\"txt6\" rowspan=\"2\">" + BReporte.get(i).getDescripcion() + "</td>");
                     out.println("<td class=\"txt4\"><form action=\"ServletRG\" method=\"post\"><input type=\"hidden\" name=\"loc\" value=\"" + i + "\"><input type=\"submit\" name=\"cambiar\" value=\"DETALLES\"></form></td></tr>");
+                    out.println("<tr><td class=\"txt4\"><form action=\"ServletRG\" method=\"post\"><input type=\"hidden\" name=\"loc\" value=\"" + i + "\"><input type=\"submit\" name=\"cambiar\" value=\"BORRAR\"></form></td></tr>");
                 } else {
                 }
                 i++;

@@ -7,6 +7,7 @@ package Classes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,12 +32,17 @@ public class ServletE extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+            
+            ArrayList<Pregunta> Examen = new ArrayList<>();
+            Jefe base = new Jefe();
+            Examen = base.devolerE();
+            int pos = base.Position();
+            
             out.println("<!DOCTYPE html>");
-            out.println("<html><head><title>Virtual Decision</title><link rel=\"stylesheet\" href=\"paso.css\"></head><body><div id=\"cabecera\"><br><table><tr><td class=\"botones\"><a class=\"boton1\" href=\"index_1.jsp\">FOROS DE USUSARIOS</a></td><td class=\"botones\"><a class=\"boton2\" href=\"buscador.html\">DATOS DE ESCUELAS</a></td><td class=\"botones\"><a class=\"boton3\" href=\" \">TEST DE APTITUDES</a></td><td><a class=\"boton4\" href=\"usuarios.jsp\">SESION</a></td></tr></table></div><div id=\"cuerpo\"><br><center><table class=\"tabla\"><tr>");
-            out.println("<td class=\"txt1\" colspan=\"5\"> PREGUNTA X</td></tr><tr>");
+            out.println("<html><head><title>Virtual Decision</title><link rel=\"stylesheet\" href=\"pasa.css\"></head><body><div id=\"cabecera\"><br><table><tr><td class=\"botones\"><a class=\"boton1\" href=\"index_1.jsp\">FOROS DE USUSARIOS</a></td><td class=\"botones\"><a class=\"boton2\" href=\"buscador.html\">DATOS DE ESCUELAS</a></td><td class=\"botones\"><a class=\"boton3\" href=\" \">TEST DE APTITUDES</a></td><td><a class=\"boton4\" href=\"usuarios.jsp\">SESION</a></td></tr></table></div><div id=\"cuerpo\"><br><center><table class=\"tabla\"><tr>");
+            out.println("<td class=\"txt1\" colspan=\"5\"> PREGUNTA " + (pos + 1) + "</td></tr><tr>");
             out.println("<td class=\"txt2\" colspan=\"5\">EN CADA ORACION ELIJA UN NUMERO PARA INDICAR QUE TANTO SE IDENTIFICA CON LO PROPUESTO POR LA MISMA</td>");
-            out.println("</tr><tr><td class=\"txt3\" colspan=\"5\">-</td></tr><tr><td class=\"txt3\" colspan=\"5\">EJEMPLO DE ORACION NUMERO X CUANDO DISEÑO MAQUINAS</td></tr><tr><td class=\"txt3\" colspan=\"5\">-</td></tr><tr class=\"txte\"><td class=\"txte\"><form action=\"ServletI\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"1\"><input type=\"submit\" value=\"- 2\"></form></td><td class=\"txte\"><form action=\"ServletI\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"2\"><input type=\"submit\" value=\"- 1\"></form></td><td class=\"txte\"><form action=\"ServletI\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"3\"><input type=\"submit\" value=\"0\"></form></td><td class=\"txte\"><form action=\"ServletI\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"4\"><input type=\"submit\" value=\"+1\"></form></td><td class=\"txte\"><form action=\"ServletI\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"5\"><input type=\"submit\" value=\"+2\"></form></td></tr></table></center><br></div></body></html>");
+            out.println("</tr><tr><td class=\"txt3\" colspan=\"5\">-</td></tr><tr><td class=\"txt3\" colspan=\"5\">" + Examen.get(pos).getTexto() + "</td></tr><tr><td class=\"txt3\" colspan=\"5\">-</td></tr><tr class=\"txte\"><td class=\"txte\"><form action=\"ServletF\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"1\"><input type=\"submit\" value=\"- 2\"></form></td><td class=\"txte\"><form action=\"ServletF\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"2\"><input type=\"submit\" value=\"- 1\"></form></td><td class=\"txte\"><form action=\"ServletF\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"3\"><input type=\"submit\" value=\"0\"></form></td><td class=\"txte\"><form action=\"ServletF\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"4\"><input type=\"submit\" value=\"+1\"></form></td><td class=\"txte\"><form action=\"ServletF\" method=\"post\"><input type=\"hidden\" id=\"iden\" name=\"bal\" value=\"5\"><input type=\"submit\" value=\"+2\"></form></td></tr></table></center><br></div></body></html>");
         }
     }
 

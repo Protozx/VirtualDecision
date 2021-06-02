@@ -110,10 +110,10 @@ public class RegistrosUsuario {
         return ahora;
     }
     
-    void actualizar(Respuestas cookie){
+    void actualizar(Respuestas simono){
         try{
             ObjectOutputStream objGrabar = new ObjectOutputStream(new FileOutputStream("C:/Users/Eidan Plata/Desktop/respuestas.dat"));
-            objGrabar.writeObject(cookie);
+            objGrabar.writeObject(simono);
             objGrabar.close();
         }
         catch (IOException e){

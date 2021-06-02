@@ -18,7 +18,7 @@
 			<tr>
 				<td class="botones"><a class="boton1" href="index_2.jsp">FOROS DE USUSARIOS</a></td>
 				<td class="botones"><a class="boton2" href="buscador.html">DATOS DE ESCUELAS</a></td>
-				<td class="botones"><a class="boton3" href="ServletE">TEST DE APTITUDES</a></td>
+				<td class="botones"><a class="boton3" href="ServletI">TEST DE APTITUDES</a></td>
 				<td><a class="boton4" href="usuarios.jsp">SESION</a></td>
 			</tr>
 		</table>

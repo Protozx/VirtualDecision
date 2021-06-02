@@ -54,6 +54,12 @@ public class ServletA extends HttpServlet {
             out.println("<h1>" + Examen.get(i).getTexto() + " - " + Examen.get(i).getArea() + "</h1>");
             i++;
             }
+            out.println("<h1>" + base.PHu() + "</h1>");
+            out.println("<h1>" + base.PEm() + "</h1>");
+            out.println("<h1>" + base.PAr() + "</h1>");
+            out.println("<h1>" + base.PCi() + "</h1>");
+            out.println("<h1>" + base.PIn() + "</h1>");
+            
             out.println("</body>");
             out.println("</html>");
         }
